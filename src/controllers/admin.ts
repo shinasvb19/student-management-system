@@ -46,6 +46,9 @@ const adminSignin = async (req: Request, res: Response) => {
 const createStudent = async (req: Request, res: Response) => {
   try {
     const { name, email, password, department } = req.body;
+    if (!department) {
+      res.status(400).json({ message: "Department is required." });
+    }
     const student = new User({
       userName: name,
       email: email,

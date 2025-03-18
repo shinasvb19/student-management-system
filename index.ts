@@ -7,7 +7,7 @@ import connectDB from "./src/config/mongoConfig";
 import morgan from "morgan";
 import { studentRoutes } from "./src/routers/studentRoutes";
 
-const port = 3000;
+const port = process.env.port ?? 3000;
 connectDB();
 const app = express();
 app.use(express.json());

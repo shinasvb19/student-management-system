@@ -52,6 +52,9 @@ exports.adminSignin = adminSignin;
 const createStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, email, password, department } = req.body;
+        if (!department) {
+            res.status(400).json({ message: "Department is required." });
+        }
         const student = new userSchema_1.default({
             userName: name,
             email: email,
